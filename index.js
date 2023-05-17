@@ -18,13 +18,7 @@ var options = {
 };
 let orderObj = {};
 function getData() {
-    console.log('updated cors');
-    app.use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-        next();
-      });
+
       
     var req = https.request(options, function (res) {
         var chunks = [];
@@ -48,6 +42,13 @@ function getData() {
 }
 
 getData();
+console.log('updated cors');
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
 app.get('/', (req, res) => {
     
     res.send(orderObj);
