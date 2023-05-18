@@ -54,7 +54,3 @@ app.get('/', (req, res) => {
     res.send(orderObj);
   });
 
-  const port = 5000; // Replace with your desired port number
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
