@@ -42,15 +42,19 @@ function getData() {
 }
 
 getData();
-console.log('updated cors');
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-  });
+    console.log('updated cors');
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        next();
+      });
 app.get('/', (req, res) => {
     
     res.send(orderObj);
   });
 
+  const port = 5000; // Replace with your desired port number
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
